@@ -1,0 +1,13 @@
+---
+const { title, stockimage } = Astro.props;
+---
+
+
+<div class="hero">
+    <div>
+        <h1>{title}</h1>
+    </div>
+    <div style={`background-image: url(/${stockimage}); background-size: 400px;`} >
+        &nbsp;
+    </div>
+</div>

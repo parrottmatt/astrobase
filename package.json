@@ -12,6 +12,8 @@
     "@astrojs/preact": "^4.1.0",
     "@astrojs/rss": "^4.0.12",
     "astro": "^5.9.2",
+    "drupal-jsonapi-params": "^3.0.0",
+    "jsona": "^1.12.1",
     "preact": "^10.26.9"
   }
 }

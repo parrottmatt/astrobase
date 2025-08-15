@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import {Jsona} from "jsona";
+import {DrupalJsonApiParams} from "drupal-jsonapi-params";
+import type {TJsonApiBody} from "jsona/lib/JsonaTypes";
+// Get the Drupal base URL
+export const baseUrl: string = import.meta.env.DRUPAL_BASE_URL;
+
+// Generate the JSON:API Query. Get all title and body from published articles.
+const params: DrupalJsonApiParams = new DrupalJsonApiParams();
+params.addFields("node--article", [
+    "title",
+    "body",
+])
+    .addFilter("status", "1");
+// Generates the query string.
+console.log("LOG: " + params.getQueryString());
+
+const path: string = params.getQueryString();
+const url: string = baseUrl + 'jsonapi/node/article?' + path;
+
+// Get the articles
+const request: Response = await fetch(url);
+const json: string | TJsonApiBody = await request.json();
+// Initiate Jsona.
+const dataFormatter: Jsona = new Jsona();
+// Deserialise the response.
+const articles = dataFormatter.deserialize(json);
+
+
+const pageTitle = "Drupal Connection";
+const stockimage = "AdobeStock_116353621_Preview.jpeg"
+---
+<BaseLayout pageTitle={pageTitle} image={stockimage}>
+    {articles?.length ? articles.map((article: any) => (
+            <section>
+                <h2>{article.title}</h2>
+                <article set:html={article.body.value}></article>
+            </section>
+    )): <div><h1>No Content found</h1></div> }
+</BaseLayout>

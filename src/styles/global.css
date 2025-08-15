@@ -6,7 +6,7 @@ html {
 body {
     margin: 0 auto;
     width: 100%;
-    max-width: 80ch;
+    max-width: 800px;
     padding: 1rem;
     line-height: 1.5;
 }
@@ -18,6 +18,8 @@ body {
 h1 {
     margin: 1rem 0;
     font-size: 2.5rem;
+    color: #f1f5f9;
+    margin: 20px;
 }
 
 /* nav styles */
@@ -38,7 +40,6 @@ h1 {
     width: 100%;
     top: 5rem;
     left: 48px;
-    background-color: #ff9776;
     display: none;
     margin: 0;
 }
@@ -46,14 +47,15 @@ h1 {
 .nav-links a {
     display: block;
     text-align: center;
-    padding: 10px 0;
+    padding: 4px 0;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
-    text-transform: uppercase;
+    font-family: "sans-serif";
+    color: #f1f5f9;
 }
 
-.nav-links a:hover, a:focus {
+.nav-lminks a:hover, a:focus {
     background-color: #ff9776;
 }
 
@@ -61,13 +63,26 @@ h1 {
     display: unset;
 }
 
+.hero {
+    display: flex;
+    margin: 20px 0;
+    background-color: cornflowerblue;
+    height:200px;
+}
+
+.hero div {
+    width: 400px;
+    align-content: center;
+    text-align: center;
+}
+
 @media screen and (min-width: 636px) {
     .nav-links {
-        margin-left: 5em;
         display: block;
         position: static;
         width: auto;
         background: none;
+        background-color: midnightblue;
     }
 
     .nav-links a {

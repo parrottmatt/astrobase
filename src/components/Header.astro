@@ -5,8 +5,18 @@ import ThemeIcon from "./ThemeIcon.astro";
 ---
 <header>
     <nav>
+        <div style="display:flex; align-items: baseline">
+            <div>
+                <img src="/metroseal-transarent-50pixels.png" alt="Metro Seal" />
+            </div>
+            <div style="font-size: 36px; font-weight: bold; margin: 0 10px; text-align: baseline">
+                Static Site One
+            </div>
+        </div>
+
         <Hamburger />
-        <ThemeIcon />
+        <!-- <ThemeIcon /> //-->
         <Navigation />
+
     </nav>
 </header>
